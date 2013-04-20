@@ -14,7 +14,6 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :user_type
   has_many :comments
-  has_and_belongs_to_many :events
 
   def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|

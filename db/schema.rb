@@ -86,11 +86,15 @@ ActiveRecord::Schema.define(:version => 20130420065408) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
     t.string   "first_name"
     t.string   "last_name"
     t.string   "user_type"
+    t.datetime "oauth_expires_at"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "oauth_token"
   end
 
 end
