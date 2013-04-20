@@ -20,6 +20,16 @@
   <%= @user.user_type %>
 </p>
 
+<h1>Photos</h1>
+
+<% @activities.each do |activity| %>
+  <% activity.photos.each do |photo| %>
+    <td><%= image_tag photo.photo.url(:medium) %></td>
+    <td><%= link_to 'Show', activity %></td>
+  <% end %>
+<% end %>
+
+<br />
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

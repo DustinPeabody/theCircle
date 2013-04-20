@@ -22,9 +22,6 @@
     <th>Type</th>
     <th>Event</th>
     <th>Completed</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
   <% @tasks.each do |task| %>
@@ -87,6 +84,14 @@
       </tr>
   <% end %>
 </table>
+
+<% @tasks.each do |task| %>
+  <% task.activities.each do |activity| %>
+    <% activity.photos.each do |photo| %>
+      <td><%= image_tag photo.photo.url(:thumb) %></td>
+    <% end %>
+  <% end %>
+<% end %>
 
 <br />
 

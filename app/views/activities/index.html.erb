@@ -15,18 +15,17 @@
 
 <table>
   <tr>
-    <th>User</th>
+    <th>First Name</th>
+    <th>Last Name</th>
     <th>Latitude</th>
     <th>Longitude</th>
     <th>Time</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 <%#  %>
 <% @activities.each do |activity| %>
   <tr>
-    <td><%= activity.user_id %></td>
+    <td><%= User.find(activity.user_id).first_name %></td>
+    <td><%= User.find(activity.user_id).last_name %></td>
     <td><%= activity.latitude %></td>
     <td><%= activity.longitude %></td>
     <td><%= activity.time %></td>

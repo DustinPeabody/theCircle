@@ -12,9 +12,6 @@
     <th>Type</th>
     <th>Event</th>
     <th>Completed</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
   <% @activity.tasks.each do |task| %>
@@ -22,6 +19,9 @@
         <td><%= task.task_type %></td>
         <td><%= Event.find(task.event_id).title if task.event_id %></td>
         <td><%= task.completed %></td>
+        <% @activity.photos.each do |photo| %>
+            <td><%= image_tag photo.photo.url(:thumb) %></td>
+        <% end %>
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
