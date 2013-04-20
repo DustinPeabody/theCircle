@@ -14,6 +14,7 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def show
     @task = Task.find(params[:id])
+    @event = Event.find(@task.event_id).title
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +26,7 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @task = Task.new
+    @task.event_id = params[:event_id]
 
     respond_to do |format|
       format.html # new.html.erb
