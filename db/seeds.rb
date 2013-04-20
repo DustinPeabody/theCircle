@@ -10,4 +10,4 @@ user1 = User.create! :first_name => "Jorge", :last_name => "Chao", :user_type =>
 location1 = Location.create! :name => "Siberia"
 event1 = Event.create! :title => "The Ghostwood", :location => location1
 Task.create :event_id => event1, :completed => false, :task_type => "Flyering"
-activity1 = Activity.create! :user_id => user1, :latitude => 30.0, :longitude => -90.0
+activity1 = Activity.create! :user_id => user1.id, :latitude => 30.0, :longitude => -90.0

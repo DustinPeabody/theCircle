@@ -7,9 +7,7 @@ class ActivitiesController < ApplicationController
       marker.infowindow render_to_string(:partial => "/activities/infowindow", :locals => { :activity => activity})
       marker.title "#{activity.id}"
       marker.json({ :time => activity.time})
-      marker.picture({:picture => "http://mapicons.nicolasmollet.com/wp-content/uploads/mapicons/shape-default/color-3875d7/shapecolor-color/shadow-1/border-dark/symbolstyle-contrast/symbolshadowstyle-dark/gradient-iphone/information.png",
-                      :width => 32,
-                      :height => 32})
+      marker.picture({:picture => User.find(activity.user_id).image, :width => 32, :height => 32})
     end
 
     respond_to do |format|
