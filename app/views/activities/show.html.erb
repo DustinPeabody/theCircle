@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @activity.user_id %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @activity.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @activity.longitude %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @activity.time %>
+</p>
+
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>

@@ -1,4 +1,16 @@
 TheCircle::Application.routes.draw do
+  resources :photos
+
+
+  resources :activities
+
+
+  resources :comments
+
+
+  resources :bulletins
+
+
   resources :tasks
 
 
