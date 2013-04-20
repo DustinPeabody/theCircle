@@ -1,17 +1,16 @@
 # == Schema Information
 #
-# Table name: photos
+# Table name: activities_tasks
 #
 #  id          :integer          not null, primary key
 #  activity_id :integer
+#  task_id     :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  activity_id: 1
-
-two:
-  activity_id: 1
+class ActivitiesTask < ActiveRecord::Base
+  # attr_accessible :title, :body
+  belongs_to :activity
+  belongs_to :task
+end
