@@ -9,7 +9,7 @@
 #  updated_at  :datetime         not null
 #
 
-class ActivitiesTasks < ActiveRecord::Base
+class ActivitiesTask < ActiveRecord::Base
   # attr_accessible :title, :body
   belongs_to :activity
   belongs_to :task

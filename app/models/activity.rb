@@ -14,6 +14,7 @@
 class Activity < ActiveRecord::Base
   attr_accessible :latitude, :longitude, :time, :user_id
   belongs_to :user
+  has_many :activities_tasks
   has_many :tasks, :through => :activities_tasks
   has_many :photos
 end

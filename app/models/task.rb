@@ -13,5 +13,6 @@
 class Task < ActiveRecord::Base
   attr_accessible :completed, :event_id, :task_type
   belongs_to :event
+  has_many :activities_tasks
   has_many :activities, :through => :activities_tasks
 end
