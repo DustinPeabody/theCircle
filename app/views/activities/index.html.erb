@@ -1,4 +1,17 @@
-<h1>Activities</h1>
+<script type="text/javascript" charset="utf-8">
+  function gmaps4rails_callback() {
+    if (Gmaps4Rails.markers.length == 1) {
+      //only one marker, choose the zoom level you expect
+      Gmaps4Rails.map.setZoom(2);
+    }
+    else{
+      //more than one marker, let's auto_zoom
+      Gmaps4Rails.map_options.auto_zoom = true;
+      Gmaps4Rails.adjust_map_to_bounds();
+    }
+  }
+</script>
+<h1>Listing activities</h1>
 
 <table>
   <tr>
@@ -22,7 +35,11 @@
     <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
-  <%= gmaps4rails(@json) %>
+  <%= gmaps({
+                "map_options" => { "auto_zoom" => false},
+                "markers"     => { "data" => @json }
+            })
+  %>
 </table>
 
 <br />

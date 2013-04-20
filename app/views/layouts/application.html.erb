@@ -57,8 +57,8 @@
 	    <ul>
 	    	<li><%=link_to image_tag("events3.png", :border => 0), :action => 'index', :controller => 'events' %></li>
           	<li><%=link_to image_tag("users3.png", :border => 0), :action => 'index', :controller => 'users' %></li>
-          	<li><%= image_tag "chat3.png" %></li>
-          	<li><%= image_tag "upload3.png" %> </li>
+          	<li><%= link_to image_tag("chat3.png", :border => 0), :action => 'chat', :controller => 'welcome' %></li>
+          	<li><%= link_to image_tag("upload3.png", :border => 0), :action => 'show', :controller => 'events' %> </li>
 	    </ul>
     </div>
   </body>
