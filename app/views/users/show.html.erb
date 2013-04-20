@@ -20,12 +20,14 @@
   <%= @user.user_type %>
 </p>
 
-<h1>Photos</h1>
+<p>
+  <b>Photos</b>
+</p>
 
 <% @activities.each do |activity| %>
   <% activity.photos.each do |photo| %>
     <td><%= image_tag photo.photo.url(:medium) %></td>
-    <td><%= link_to 'Show', activity %></td>
+    <td><%= link_to 'Show', photo %></td>
   <% end %>
 <% end %>
 
