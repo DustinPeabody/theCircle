@@ -12,6 +12,7 @@ user3 = User.create! :first_name => "Devon", :last_name => "Fries", :user_type =
 location1 = Location.create! :name => "Siberia"
 event1 = Event.create! :title => "The Ghostwood", :location => location1
 Task.create :event_id => event1.id, :completed => false, :task_type => "Flyering"
+Task.create :event_id => event1.id, :completed => false, :task_type => "Postering"
 Bulletin.create :event_id => event1.id, :status => "Siberia is very cold"
 activity1 = Activity.create! :user_id => user1.id, :latitude => 30.1, :longitude => -90.2
 activity2 = Activity.create! :user_id => user1.id, :latitude => 30.4, :longitude => -90.3
