@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Myapp" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "The Circle" %></title>
     <meta name="description" content="">
     <meta name="author" content="">
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -22,8 +22,6 @@
     </header>
     -->
     <div id="main" role="main">
-      <%=  link_to "Home", root_path %>
-      <%= image_tag "rails.png" %>
       <div class="container">
         <div class="content">
            <div class="row">
