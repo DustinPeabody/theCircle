@@ -69,11 +69,11 @@ ActiveRecord::Schema.define(:version => 20130420065408) do
   end
 
   create_table "tasks", :force => true do |t|
-    t.string   "type"
     t.integer  "event_id"
     t.boolean  "completed"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "task_type"
   end
 
   create_table "user_rsvps", :force => true do |t|
