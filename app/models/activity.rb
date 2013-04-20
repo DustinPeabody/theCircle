@@ -17,4 +17,8 @@ class Activity < ActiveRecord::Base
   has_many :activities_tasks
   has_many :tasks, :through => :activities_tasks
   has_many :photos
+
+  acts_as_gmappable :process_geocoding => false
+
+
 end
