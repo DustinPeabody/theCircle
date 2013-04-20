@@ -17,6 +17,7 @@
 
 class User < ActiveRecord::Base
   attr_accessible :email, :first_name, :last_name, :user_type
+  has_many :activities
   has_many :comments
 
   def self.from_omniauth(auth)

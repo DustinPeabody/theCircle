@@ -11,3 +11,16 @@ location1 = Location.create! :name => "Siberia"
 event1 = Event.create! :title => "The Ghostwood", :location => location1
 Task.create :event_id => event1, :completed => false, :task_type => "Flyering"
 activity1 = Activity.create! :user_id => user1.id, :latitude => 30.0, :longitude => -90.0
+activity2 = Activity.create! :user_id => user1.id, :latitude => 30.0, :longitude => -90.0
+activity3 = Activity.create! :user_id => user1.id, :latitude => 30.0, :longitude => -90.0
+activity4 = Activity.create! :user_id => user1.id, :latitude => 30.0, :longitude => -90.0
+activity5 = Activity.create! :user_id => user1.id, :latitude => 30.0, :longitude => -90.0
+
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  latitude   :float
+#  longitude  :float
+#  time       :date
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
