@@ -18,8 +18,10 @@ class EventsController < ApplicationController
 
     activities_belonging_to_a_completed_task = Hash.new
 
-    @tasks.select{ |t| t.completed }.each do |task|
-      activities_belonging_to_a_completed_task << (task.activities)
+    @tasks.each do |task|
+      task.activities.each do |activity|
+        activities_belonging_to_a_completed_task.merge(Hash[activity.id => activity])
+      end
     end
 
     @rsvps = User.where(:id => activities_belonging_to_a_completed_task[:user_id])

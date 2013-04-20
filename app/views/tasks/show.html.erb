@@ -7,7 +7,7 @@
 
 <p>
   <b>Event:</b>
-  <%= @task.event_id %>
+  <%= @event %>
 </p>
 
 <p>
@@ -15,6 +15,6 @@
   <%= @task.completed %>
 </p>
 
-
+<%= link_to 'New Activity', new_activity_path(:task_id => @task.id) %>
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
