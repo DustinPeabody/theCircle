@@ -22,6 +22,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'omniauth-facebook'
 
 #ADDED BY DEVIN
 gem 'bootstrap-sass'
