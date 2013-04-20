@@ -12,16 +12,20 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
   </div>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :type %><br />
-    <%= f.text_field :type %>
+    <%= f.label :user_type %><br />
+    <%= f.select :user_type, [['Administrator'],['Promoter']] %>
   </div>
   <div class="actions">
     <%= f.submit %>

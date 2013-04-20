@@ -1,24 +1,23 @@
+# EMAIL,USER NAME,USER TYPE ,USER ACTION,EVENT,LOCATION ,TIME
 task :import => :environment do
   puts "Beginning import..."
-  User.delete_all
   Event.delete_all
-  Task.delte_all
-  File.open("./telemetry.csv", "r").each_line do |line|
-    site = line.split ","
-    s = Site.create! :site_name => site[10]
-    b = Buoy.create! :site_id => s.id,
-      :buoy_id => site[0],
-      :latitude => site[1],
-      :longitude => site[2],
-      :attachment => site[3],
-      :bottom_type => site[5],
-      :depth => site[6],
-      :notes => site[7],
-      :downline => site[8],
-      :anchorline => site[9]
-
-    r = Receiver.create! :receiver_no => site[11], :buoy_id => b.id
-    puts "Created Buoy number #{site[0]}"
+  Task.delete_all
+  ActivitiesTask.delete_all
+  File.open("./db/the_circle.csv", "r").each_line do |line|
+    line = line.split ","
+    u = User.find_or_create_by_email line[0]
+    u.first_name = line[1].split.first
+    u.last_name = line[1].split.last
+    u.user_type = line[2]
+    u.save
+    
+    e = Event.find_or_create_by_title line[4] if line[4]
+    t = Task.find_or_create_by_name :name => line[3] if e
+    t.event_id = e.id if e
+    t.task_type = t.name if e
+    t.save if t
+    puts "Created User number #{line[0]}"
   end
   puts "Import compleeat!"
 end
