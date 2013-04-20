@@ -1,68 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "The Circle" %></title>
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
-    <%= stylesheet_link_tag "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
-    <%= csrf_meta_tags %>
-    <%= yield(:head) %>
-  </head>
-  <body>
-    <header>
-    </header>
-    <div class="wrapper">
-      <div class="container-fluid">
-        <div class="content">
-           <div class="row-fluid">
-            <div class="span12">
-              <%#= render 'layouts/messages' %>
-              <%= yield %>
-              <%= yield :scripts %>
-            </div>
-          </div>
-          <div>
-	        <div class="form-signin">
-	          <center>
-		          <div id="user_nav">
-		            <% if current_user %>
-		                Signed in as <strong><%= current_user.first_name %></strong>!
-		                <%= link_to "Sign out", signout_path, id: "sign_out" %>
-		            <% else %>
-		              <%= form_tag :controller => 'welcome', :action => 'auth', :method => 'get' do %>
-		                <%= text_field_tag(:email) %>
-		              <%#= link_to "Sign in with Facebook", "/welcome/auth", id: "sign_in" %>
-		                <%= submit_tag "Email", :class => "btn btn-large" %>
-		              <% end %>
-		            <% end %>
-		          </div>
-		          <%# render 'layouts/navigation' %>
-	          </center>
-	        </div>
-          <footer>
-          </footer>
-        </div>
-      </div> <!--! end of .container -->
-    </div> <!--! end of #main -->
-    <div class="push"></div>
-    </div>
-    <div class="footer row">
-    	<div class="form-center">
-    		
-	 	    <ul >
-		    	<li><%=link_to image_tag("events3.png", :border => 0), :action => 'index', :controller => 'events' %></li>
-	          	<li><%=link_to image_tag("users3.png", :border => 0), :action => 'index', :controller => 'users' %></li>
-	          	<li><%= image_tag "chat3.png" %></li>
-	          	<li><%= image_tag "upload3.png" %> </li>
-		    </ul>
-    	</div>
-    </div>
-  </body>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><%= content_for?(:title) ? yield(:title) : "The Circle" %></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--<link href="assets/css/bootstrap-responsive.css" rel="stylesheet">-->
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+	<%= stylesheet_link_tag "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+	<%= yield(:head) %>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="container">
+			<div class="row">
+				<div class="span2"></div>
+				<div class="span8">
+					<div class="content">
+						<%#= render 'layouts/messages' %>
+						<%= yield %>
+						<%= yield :scripts %>
+						<div class="form-signin">
+							<% if current_user %>
+							Signed in as <strong><%= current_user.first_name %></strong>!
+							<%= link_to "Sign out", signout_path, id: "sign_out" %>
+							<% else %>
+							<%= form_tag :controller => 'welcome', :action => 'auth', :method => 'get' do %>
+							<%= text_field_tag(:email) %>
+							<%#= link_to "Sign in with Facebook", "/welcome/auth", id: "sign_in" %>
+							<%= submit_tag "Email", :class => "btn btn-primary btn-large" %>
+							<% end %>
+							<% end %>
+							<%# render 'layouts/navigation' %>
+						</div><!-- /form-signin -->
+					</div>
+				</div><!-- /span8 -->
+				<div class="span2"></div>
+			</div><!-- /row -->
+		</div><!-- /container -->
+		<div class="push"></div>
+	</div><!-- /wrapper -->
+	<footer>
+		<div class="footer-wrapper">
+			<div><%=link_to image_tag("events3.png", :border => 0), :action => 'index', :controller => 'events' %></div>
+			<div><%=link_to image_tag("users3.png", :border => 0), :action => 'index', :controller => 'users' %></div>
+			<div><%= image_tag "chat3.png" %></div>
+			<div><%= image_tag "upload3.png" %></div>
+		</div>
+	</footer>
+</body>
 </html>
