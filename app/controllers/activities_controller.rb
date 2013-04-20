@@ -25,6 +25,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/new.json
   def new
     @activity = Activity.new
+    @activity.tasks.add(Task.find(params[:task_id]))
 
     respond_to do |format|
       format.html # new.html.erb

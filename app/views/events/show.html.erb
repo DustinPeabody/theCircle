@@ -15,7 +15,7 @@
   <%= @event.location_id %>
 </p>
 
-<h1>Tasks for this event</h1>
+<b>Tasks for this event</b>
 
 <table>
   <tr>
@@ -29,7 +29,7 @@
 
   <% @tasks.each do |task| %>
       <tr>
-        <td><%= task.type %></td>
+        <td><%= task.task_type %></td>
         <td><%= task.event_id %></td>
         <td><%= task.completed %></td>
         <td><%= link_to 'Show', task %></td>
@@ -41,7 +41,7 @@
 
 <br />
 
-<h1>Users who have completed a task for this event</h1>
+<b>Users who have done an activity for this event</b>
 
 <table>
   <tr>
@@ -57,7 +57,7 @@
       <tr>
         <td><%= user.name %></td>
         <td><%= user.email %></td>
-        <td><%= user.type %></td>
+        <td><%= user.user_type %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -67,5 +67,6 @@
 
 <br />
 
+<%= link_to 'Add Task', new_task_path(:event_id => @event.id) %> |
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
