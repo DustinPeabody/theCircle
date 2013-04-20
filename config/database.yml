@@ -6,7 +6,7 @@
 development:
   adapter: postgresql
     encoding: unicode
-    database: blog_development
+    database: circle_development
     pool: 5
     username: circle_development
     password:
