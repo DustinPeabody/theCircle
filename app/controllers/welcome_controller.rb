@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
       if current_user.user_type == "Administrator"
         redirect_to events_path
       else
-        redirect_to tasks_path
+        redirect_to events_path
       end
     end
   end
@@ -21,4 +21,9 @@ class WelcomeController < ApplicationController
       #throw an error, redirect to home page
     end
   end
+  
+  def chat
+    
+  end
+  
 end
