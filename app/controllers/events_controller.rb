@@ -14,6 +14,15 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+    @tasks = Task.where(:event_id => @event.id)
+
+    activities_belonging_to_a_completed_task = Hash.new
+
+    @tasks.select{ |t| t.completed }.each do |task|
+      activities_belonging_to_a_completed_task << (task.activities)
+    end
+
+    @rsvps = User.where(:id => activities_belonging_to_a_completed_task[:user_id])
 
     respond_to do |format|
       format.html # show.html.erb
