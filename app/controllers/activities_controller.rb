@@ -31,7 +31,9 @@ class ActivitiesController < ApplicationController
   # GET /activities/new.json
   def new
     @activity = Activity.new
+    # get the task passed in from the task show page
     @task = Task.find(params[:task_id])
+    # the activity belongs to the current user
     @activity.user_id = current_user.id
 
     respond_to do |format|
@@ -52,6 +54,7 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       if @activity.save
+        ## if the activity is saved create a relation to a task
         ActivitiesTask.create(:activity_id => @activity.id, :task_id => params[:task_id])
         format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
         format.json { render json: @activity, status: :created, location: @activity }

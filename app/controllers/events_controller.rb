@@ -17,11 +17,14 @@ class EventsController < ApplicationController
     @tasks = Task.where(:event_id => @event.id)
     @bulletins = Bulletin.where(:event_id => @event.id)
 
-
+    # create a hash map to fill with activities from this event
     activities_belonging_to_a_completed_task = Hash.new
 
+    # for each task in this event get its activities
     @tasks.each do |task|
       task.activities.each do |activity|
+        # add the task's activities to the activities hash map
+        # with the activity id as the key and the activity itself as the value
         activities_belonging_to_a_completed_task.merge(Hash[activity.id => activity])
       end
     end

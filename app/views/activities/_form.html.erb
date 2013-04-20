@@ -14,9 +14,12 @@
   <div class="field">
     <%= f.hidden_field :user_id %>
   </div>
-    <div class="field">
-      <%= hidden_field_tag :task_id, @task.id %>
-    </div>
+  <div class="field">
+    <%= hidden_field_tag :task_id, @task.id %>
+  </div>
+  <div class="field">
+    <%= form.file_field :photo %>
+  </div>
   <div class="field">
     <%= f.label :latitude %><br />
     <%= f.text_field :latitude %>
