@@ -12,26 +12,7 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <header class="navbar navbar-fixed-top">
-      <nav class="navbar-inner">
-        <div class="container">
-          <center>
-	          <div id="user_nav">
-	            <% if current_user %>
-	                Signed in as <strong><%= current_user.first_name %></strong>!
-	                <%= link_to "Sign out", signout_path, id: "sign_out" %>
-	            <% else %>
-	              <%= form_tag :controller => 'welcome', :action => 'auth', :method => 'get' do %>
-	                <%= text_field_tag(:email) %>
-	              <%#= link_to "Sign in with Facebook", "/welcome/auth", id: "sign_in" %>
-	                <%= submit_tag("Email") %>
-	              <% end %>
-	            <% end %>
-	          </div>
-	          <%# render 'layouts/navigation' %>
-          </center>
-        </div>
-      </nav>
+    <header>
     </header>
     <div id="main" role="main">
       <div class="container">
@@ -42,6 +23,26 @@
               <%= yield %>
             </div>
           </div>
+          <div>
+		     <nav class="navbar-inner">
+		        <div class="container">
+		          <center>
+			          <div id="user_nav">
+			            <% if current_user %>
+			                Signed in as <strong><%= current_user.first_name %></strong>!
+			                <%= link_to "Sign out", signout_path, id: "sign_out" %>
+			            <% else %>
+			              <%= form_tag :controller => 'welcome', :action => 'auth', :method => 'get' do %>
+			                <%= text_field_tag(:email) %>
+			              <%#= link_to "Sign in with Facebook", "/welcome/auth", id: "sign_in" %>
+			                <%= submit_tag("Email") %>
+			              <% end %>
+			            <% end %>
+			          </div>
+			          <%# render 'layouts/navigation' %>
+		          </center>
+		        </div>
+		      </nav>
           <footer>
           </footer>
         </div>
