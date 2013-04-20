@@ -14,6 +14,7 @@ class BulletinsController < ApplicationController
   # GET /bulletins/1.json
   def show
     @bulletin = Bulletin.find(params[:id])
+    @event = Event.find(@bulletin.event_id).title
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +26,7 @@ class BulletinsController < ApplicationController
   # GET /bulletins/new.json
   def new
     @bulletin = Bulletin.new
+    @bulletin.event_id = params[:event_id]
 
     respond_to do |format|
       format.html # new.html.erb

@@ -2,14 +2,13 @@
 
 <p>
   <b>Event:</b>
-  <%= @bulletin.event_id %>
+  <%= @event %>
 </p>
 
 <p>
   <b>Status:</b>
   <%= @bulletin.status %>
 </p>
-
 
 <%= link_to 'Edit', edit_bulletin_path(@bulletin) %> |
 <%= link_to 'Back', bulletins_path %>

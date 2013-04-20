@@ -41,6 +41,29 @@
 
 <br />
 
+<b>Bulletins<b1>
+
+<table>
+  <tr>
+    <th>Event</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @bulletins.each do |bulletin| %>
+      <tr>
+        <td><%= bulletin.status %></td>
+        <td><%= link_to 'Show', bulletin %></td>
+        <td><%= link_to 'Edit', edit_bulletin_path(bulletin) %></td>
+        <td><%= link_to 'Destroy', bulletin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+</table>
+
+<br />
+
 <b>Users who have done an activity for this event</b>
 
 <table>
@@ -67,6 +90,7 @@
 
 <br />
 
+<%= link_to 'Add Bulletin', new_bulletin_path(:event_id => @event.id) %> |
 <%= link_to 'Add Task', new_task_path(:event_id => @event.id) %> |
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
