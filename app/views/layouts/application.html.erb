@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -12,15 +12,21 @@
     <%= yield(:head) %>
   </head>
   <body>
-    <!-- Commented out do to user auth silliness
     <header class="navbar navbar-fixed-top">
       <nav class="navbar-inner">
         <div class="container">
+          <div id="user_nav">
+            <% if current_user %>
+                Signed in as <strong><%= current_user.first_name %></strong>!
+                <%= link_to "Sign out", signout_path, id: "sign_out" %>
+            <% else %>
+                <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+            <% end %>
+          </div>
           <%# render 'layouts/navigation' %>
         </div>
       </nav>
     </header>
-    -->
     <div id="main" role="main">
       <%=  link_to "Home", root_path %>
       <%= image_tag "rails.png" %>
@@ -38,4 +44,15 @@
       </div> <!--! end of .container -->
     </div> <!--! end of #main -->
   </body>
+<head>
+  <title>TheCircle</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
 </html>

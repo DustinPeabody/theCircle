@@ -3,6 +3,11 @@ TheCircle::Application.routes.draw do
 
   get "welcome/mobile"
 
+
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
+
   resources :photos
 
 
@@ -76,7 +81,7 @@ TheCircle::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#home'
+  root :to => 'events#index'
 
   # See how all your routes lay out with "rake routes"
 
