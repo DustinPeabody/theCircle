@@ -26,7 +26,7 @@ class ActivitiesController < ApplicationController
   def new
     @activity = Activity.new
     @task = Task.find(params[:task_id])
-    @activity.user_id = current_user
+    @activity.user_id = current_user.id
 
     respond_to do |format|
       format.html # new.html.erb
