@@ -4,7 +4,6 @@ class ActivitiesController < ApplicationController
   def index
     @activities = Activity.all
     @json = @activities.to_gmaps4rails do |activity, marker|
-      marker.infowindow render_to_string(:partial => "/activities/infowindow", :locals => { :activity => activity})
       marker.title "#{activity.id}"
       marker.json({ :time => activity.time})
       marker.picture({:picture => User.find(activity.user_id).image, :width => 32, :height => 32})
