@@ -1,6 +1,6 @@
-<h1>Upcoming Events</h1>
+<h1 style="color: #16b0ed;">Upcoming Events</h1>
 
-<table>
+<table class="event_headline">
   <tr>
     <th>Title</th>
     <th>Date</th>
@@ -14,7 +14,7 @@
   <tr>
     <td><%= event.title %></td>
     <td><%= event.date %></td>
-    <td><%= event.location_id %></td>
+    <td><%= event.location.name %></td>
     <td><%= link_to 'Show', event %></td>
     <td><%= link_to 'Edit', edit_event_path(event) %></td>
     <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>

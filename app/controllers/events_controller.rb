@@ -15,6 +15,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @tasks = Task.where(:event_id => @event.id)
+    @bulletins = Bulletin.where(:event_id => @event.id)
+
 
     activities_belonging_to_a_completed_task = Hash.new
 
