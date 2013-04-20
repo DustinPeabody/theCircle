@@ -55,8 +55,6 @@ class ActivitiesController < ApplicationController
     #raise params.inspect
     @activity = Activity.new(params[:activity])
 
-
-
     respond_to do |format|
       if @activity.save
         # if the activity is saved create a relation to a task and the photo
