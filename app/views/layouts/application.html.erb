@@ -6,7 +6,6 @@
     <title><%= content_for?(:title) ? yield(:title) : "The Circle" %></title>
     <meta name="description" content="">
     <meta name="author" content="">
-    <script src='https://cdn.firebase.com/v0/firebase.js'></script>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -22,7 +21,6 @@
             <div class="span12">
               <%#= render 'layouts/messages' %>
               <%= yield %>
-              <%= yield :scripts %>
             </div>
           </div>
           <div>
@@ -45,8 +43,6 @@
 		          </center>
 		        </div>
 		      </nav>
-          <footer>
-          </footer>
         </div>
       </div> <!--! end of .container -->
     </div> <!--! end of #main -->
