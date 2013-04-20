@@ -15,4 +15,6 @@ class Event < ActiveRecord::Base
   belongs_to :location
   has_many :tasks
   has_many :bulletins
+  
+  validates_uniqueness_of :title, :scope => [:date]
 end
