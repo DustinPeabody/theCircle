@@ -9,6 +9,7 @@
 #
 
 class Photo < ActiveRecord::Base
-  attr_accessible :activity_id
+  attr_accessible :photo
   belongs_to :activity
+  has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 end

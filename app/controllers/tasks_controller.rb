@@ -14,6 +14,7 @@ class TasksController < ApplicationController
   # GET /tasks/1.json
   def show
     @task = Task.find(params[:id])
+    # get the name of the event this task is associated with to send to the view
     @event = Event.find(@task.event_id).title
 
     respond_to do |format|
@@ -26,6 +27,7 @@ class TasksController < ApplicationController
   # GET /tasks/new.json
   def new
     @task = Task.new
+    # get the event id passed in from the event show page
     @task.event_id = params[:event_id]
 
     respond_to do |format|
