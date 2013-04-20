@@ -16,8 +16,11 @@ TheCircle::Application.routes.draw do
   
   match 'promoter/home' => 'events#promoter_index'
 
-  resources :photos
-
+  resources :photos do
+    member do
+      get 'upload'
+    end
+  end
 
   resources :activities
 

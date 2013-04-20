@@ -81,4 +81,8 @@ class PhotosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def upload
+    @photo = Photo.new
+  end
 end

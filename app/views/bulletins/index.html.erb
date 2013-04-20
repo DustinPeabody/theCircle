@@ -12,7 +12,7 @@
 
 <% @bulletins.each do |bulletin| %>
   <tr>
-    <td><%= bulletin.event_id %></td>
+    <td><%= Event.find(bulletin.event_id).title %></td>
     <td><%= bulletin.status %></td>
     <td><%= link_to 'Show', bulletin %></td>
     <td><%= link_to 'Edit', edit_bulletin_path(bulletin) %></td>
