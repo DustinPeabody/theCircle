@@ -1,13 +1,5 @@
 <!doctype html>
 <html>
-<head>
-  <title>TheCircle</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-  <%=  link_to "Home", root_path %>
-</head>
-</body>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,11 +22,12 @@
     </header>
     -->
     <div id="main" role="main">
+      <%=  link_to "Home", root_path %>
       <div class="container">
         <div class="content">
            <div class="row">
             <div class="span12">
-              <%= render 'layouts/messages' %>
+              <%#= render 'layouts/messages' %>
               <%= yield %>
             </div>
           </div>
