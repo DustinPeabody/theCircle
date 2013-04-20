@@ -30,6 +30,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/new.json
   def new
     @activity = Activity.new
+
     # get the task passed in from the task show page
     @task = Task.find(params[:task_id])
     # the activity belongs to the current user
@@ -49,11 +50,23 @@ class ActivitiesController < ApplicationController
   # POST /activities
   # POST /activities.json
   def create
+
+
+    #raise params.inspect
     @activity = Activity.new(params[:activity])
+
+
 
     respond_to do |format|
       if @activity.save
-        ## if the activity is saved create a relation to a task
+        # if the activity is saved create a relation to a task and the photo
+
+        params[:photos].each do |p|
+          photo = @activity.photos.new
+          photo.photo = p
+          photo.save
+        end
+
         ActivitiesTask.create(:activity_id => @activity.id, :task_id => params[:task_id])
         format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
         format.json { render json: @activity, status: :created, location: @activity }

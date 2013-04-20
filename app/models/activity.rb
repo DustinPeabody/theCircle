@@ -12,11 +12,12 @@
 #
 
 class Activity < ActiveRecord::Base
-  attr_accessible :latitude, :longitude, :time, :user_id, :photo
+  attr_accessible :latitude, :longitude, :time, :user_id, :photo_attr
   belongs_to :user
   has_many :activities_tasks
   has_many :tasks, :through => :activities_tasks
   has_many :photos
+  accepts_nested_attributes_for :photos, :reject_if => lambda { |t| t['photo'].nil? }
 
   acts_as_gmappable :process_geocoding => false
 
