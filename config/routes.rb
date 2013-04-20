@@ -9,6 +9,7 @@ TheCircle::Application.routes.draw do
   match 'auth/failure', to: redirect('/')
   match '/chat' => 'welcome#chat'
   match 'signout', to: 'sessions#destroy', as: 'signout'
+  match '/welcome/image' => 'welcome#image'
 
 
   match 'admin/home' => 'events#admin_index'

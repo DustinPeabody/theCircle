@@ -25,5 +25,9 @@ class WelcomeController < ApplicationController
   def chat
     
   end
+
+  def image
+
+  end
   
 end
