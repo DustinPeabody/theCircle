@@ -12,10 +12,10 @@
 
 <p>
   <b>Location:</b>
-  <%= @event.location_id %>
+  <%= Location.find(@event.location_id).name %>
 </p>
 
-<b>Tasks for this event</b>
+<b>Tasks</b>
 
 <table>
   <tr>
