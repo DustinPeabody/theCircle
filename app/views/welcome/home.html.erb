@@ -1,12 +1,4 @@
-<% if current_user %>
-  <% if current_user.user_type == "Administrator" %>
-    <%= render :partial => "administrator_home" %>
-  <% else %>
-    <% render :partial => "promoter_home" %>
-  <% end %>
-<% else %>
-  <center>
-  	<span id="landingLogo"><%= image_tag "wintercircle.png" %></span>
-  	<h1 style="color: #16b0ed">LOGIN</h1>	
-  </center>
-<% end %>
+<center>
+	<span id="landingLogo"><%= image_tag "wintercircle.png" %></span>
+	<h1 style="color: #16b0ed">LOGIN</h1>	
+</center>

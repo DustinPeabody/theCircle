@@ -1,5 +1,12 @@
 class WelcomeController < ApplicationController
   def home
+    if current_user
+      if current_user.user_type == "Administrator"
+        redirect_to events_path
+      else
+        redirect_to tasks_path
+      end
+    end
   end
 
   def mobile
