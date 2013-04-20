@@ -50,12 +50,7 @@ class ActivitiesController < ApplicationController
   # POST /activities
   # POST /activities.json
   def create
-
-
-    #raise params.inspect
     @activity = Activity.new(params[:activity])
-
-
 
     respond_to do |format|
       if @activity.save

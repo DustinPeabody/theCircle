@@ -12,24 +12,22 @@
 
 <p>
   <b>Location:</b>
-  <%= @event.location_id %>
+  <%= Location.find(@event.location_id).name %>
 </p>
 
-<b>Tasks for this event</b>
+<b>Tasks</b>
 
 <table>
   <tr>
     <th>Type</th>
-    <th>Event</th>
     <th>Completed</th>
   </tr>
 
   <% @tasks.each do |task| %>
       <tr>
         <td><%= task.task_type %></td>
-        <td><%= task.event_id %></td>
         <td><%= task.completed %></td>
-        <td><%= link_to 'New Activity', new_activity_path(:task_id => task.id) %></td>
+        <td><%= link_to 'Log Activity', new_activity_path(:task_id => task.id) %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -42,7 +40,6 @@
 
 <table>
   <tr>
-    <th>Event</th>
     <th>Status</th>
     <th></th>
     <th></th>
@@ -61,23 +58,20 @@
 
 <br />
 
-<b>Users who have done an activity for this event</b>
+<b>Users doing activities</b>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Type</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Last Name</th>
+    <th>First Name</th>
+    <th>Email</th
   </tr>
 
   <% @rsvps.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.first_name %></td>
         <td><%= user.email %></td>
-        <td><%= user.user_type %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
