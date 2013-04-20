@@ -12,7 +12,7 @@
 #
 
 class Activity < ActiveRecord::Base
-  attr_accessible :latitude, :longitude, :time, :user_id
+  attr_accessible :latitude, :longitude, :time, :user_id, :photo
   belongs_to :user
   has_many :activities_tasks
   has_many :tasks, :through => :activities_tasks
