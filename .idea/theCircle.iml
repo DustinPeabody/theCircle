@@ -15,6 +15,8 @@
     <orderEntry type="library" scope="PROVIDED" name="bootstrap-sass (v2.3.1.0, RVM: ruby-1.9.3-p327) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.0.4, RVM: ruby-1.9.3-p327) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.2.1, RVM: ruby-1.9.3-p327) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="climate_control (v0.0.3, RVM: ruby-1.9.3-p327) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cocaine (v0.5.1, RVM: ruby-1.9.3-p327) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v3.2.2, RVM: ruby-1.9.3-p327) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.2.0, RVM: ruby-1.9.3-p327) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.4.0, RVM: ruby-1.9.3-p327) [gem]" level="application" />
@@ -38,6 +40,7 @@
     <orderEntry type="library" scope="PROVIDED" name="omniauth (v1.1.4, RVM: ruby-1.9.3-p327) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="omniauth-facebook (v1.4.1, RVM: ruby-1.9.3-p327) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="omniauth-oauth2 (v1.1.1, RVM: ruby-1.9.3-p327) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="paperclip (v3.4.1, RVM: ruby-1.9.3-p327) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="polyglot (v0.3.3, RVM: ruby-1.9.3-p327) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack (v1.4.5, RVM: ruby-1.9.3-p327) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rack-cache (v1.2, RVM: ruby-1.9.3-p327) [gem]" level="application" />
