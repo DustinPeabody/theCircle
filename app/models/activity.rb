@@ -25,7 +25,7 @@ class Activity < ActiveRecord::Base
 
   def gmaps4rails_infowindow
     # add here whatever html content you desire, it will be displayed when users clicks on the marker
-    "<img src=\"#{self.photos.first.photo.url unless self.photos.first.nil?}\"> #{self.user_id}"
+    "<img src=\"#{self.photos.first.photo.url(:thumb) unless self.photos.first.nil?}\"> #{self.user_id}"
   end
 
   def gmaps4rails_title

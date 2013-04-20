@@ -17,7 +17,7 @@ class WelcomeController < ApplicationController
     if user
       redirect_to "/auth/facebook"
     else
-      raise "ass"
+      raise "Not allowed"
       #throw an error, redirect to home page
     end
   end
