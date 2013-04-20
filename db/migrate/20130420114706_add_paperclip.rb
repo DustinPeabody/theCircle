@@ -1,9 +1,9 @@
-class AddAvatarColumnsToUsers < ActiveRecord::Migration
+class AddPaperclip < ActiveRecord::Migration
   def self.up
-    add_attachment :users, :avatar
+    add_attachment :photos, :photo
   end
 
   def self.down
-    remove_attachment :users, :avatar
+    remove_attachment :photos, :photo
   end
 end
