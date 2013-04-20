@@ -96,4 +96,14 @@ class EventsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def admin_index
+    @events = Event.order(:date).limit(10)
+    @users = User.limit(10)
+  end
+  
+  def promoter_index
+    
+  end
+  
 end
