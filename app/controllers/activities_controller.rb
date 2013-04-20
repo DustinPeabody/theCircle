@@ -25,7 +25,8 @@ class ActivitiesController < ApplicationController
   # GET /activities/new.json
   def new
     @activity = Activity.new
-    @activity.tasks.add(Task.find(params[:task_id]))
+    @task = Task.find(params[:task_id])
+    @activity.user_id = current_user
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,6 +46,7 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       if @activity.save
+        ActivitiesTask.create(:activity_id => @activity.id, :task_id => params[:task_id])
         format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
         format.json { render json: @activity, status: :created, location: @activity }
       else

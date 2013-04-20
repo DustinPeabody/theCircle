@@ -10,7 +10,7 @@
 #
 
 class ActivitiesTask < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :task_id, :activity_id
   belongs_to :activity
   belongs_to :task
 end
