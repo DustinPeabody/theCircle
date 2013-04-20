@@ -10,10 +10,14 @@ user1 = User.create! :first_name => "Jorge", :last_name => "Chao", :user_type =>
 user2 = User.create! :first_name => "Charles", :last_name => "Perniciaro III", :user_type => "Promoter", :email => "cpernici@cs.uno.edu"
 user3 = User.create! :first_name => "Devon", :last_name => "Fries", :user_type => "Promoter", :email => "dfries@cs.uno.edu"
 location1 = Location.create! :name => "Siberia"
+location2 = Location.create! :name => "Republic", :address => "828 South Peters St."
 event1 = Event.create! :title => "The Ghostwood", :location => location1
+event2 = Event.create! :title => "Borgore", :location => location2
 Task.create :event_id => event1.id, :completed => false, :task_type => "Flyering"
 Task.create :event_id => event1.id, :completed => false, :task_type => "Postering"
+Task.create :event_id => event2.id, :completed => false, :task_type => "Exit flyer at Crystal Castles tonight"
 Bulletin.create :event_id => event1.id, :status => "Siberia is very cold"
+Bulletin.create :event_id => event2.id, :status => "Borgore posters have landed"
 activity1 = Activity.create! :user_id => user1.id, :latitude => 30.1, :longitude => -90.2
 activity2 = Activity.create! :user_id => user1.id, :latitude => 30.4, :longitude => -90.3
 activity3 = Activity.create! :user_id => user2.id, :latitude => 31.0, :longitude => -89.0
