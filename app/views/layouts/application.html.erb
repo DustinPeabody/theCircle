@@ -8,6 +8,8 @@
     <meta name="author" content="">
     <script src="https://cdn.firebase.com/v0/firebase.js"></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -17,9 +19,9 @@
     <header>
     </header>
     <div class="wrapper">
-      <div class="container">
+      <div class="container-fluid">
         <div class="content">
-           <div class="row">
+           <div class="row-fluid">
             <div class="span12">
               <%#= render 'layouts/messages' %>
               <%= yield %>
@@ -27,25 +29,23 @@
             </div>
           </div>
           <div>
-		     <nav class="navbar-inner">
-		        <div class="container">
-		          <center>
-			          <div id="user_nav">
-			            <% if current_user %>
-			                Signed in as <strong><%= current_user.first_name %></strong>!
-			                <%= link_to "Sign out", signout_path, id: "sign_out" %>
-			            <% else %>
-			              <%= form_tag :controller => 'welcome', :action => 'auth', :method => 'get' do %>
-			                <%= text_field_tag(:email) %>
-			              <%#= link_to "Sign in with Facebook", "/welcome/auth", id: "sign_in" %>
-			                <%= submit_tag("Email") %>
-			              <% end %>
-			            <% end %>
-			          </div>
-			          <%# render 'layouts/navigation' %>
-		          </center>
-		        </div>
-		      </nav>
+	        <div class="form-signin">
+	          <center>
+		          <div id="user_nav">
+		            <% if current_user %>
+		                Signed in as <strong><%= current_user.first_name %></strong>!
+		                <%= link_to "Sign out", signout_path, id: "sign_out" %>
+		            <% else %>
+		              <%= form_tag :controller => 'welcome', :action => 'auth', :method => 'get' do %>
+		                <%= text_field_tag(:email) %>
+		              <%#= link_to "Sign in with Facebook", "/welcome/auth", id: "sign_in" %>
+		                <%= submit_tag "Email", :class => "btn btn-large" %>
+		              <% end %>
+		            <% end %>
+		          </div>
+		          <%# render 'layouts/navigation' %>
+	          </center>
+	        </div>
           <footer>
           </footer>
         </div>
@@ -53,13 +53,16 @@
     </div> <!--! end of #main -->
     <div class="push"></div>
     </div>
-    <div class="footer">
-	    <ul>
-	    	<li><%=link_to image_tag("events3.png", :border => 0), :action => 'index', :controller => 'events' %></li>
-          	<li><%=link_to image_tag("users3.png", :border => 0), :action => 'index', :controller => 'users' %></li>
-          	<li><%= link_to image_tag("chat3.png", :border => 0), :action => 'chat', :controller => 'welcome' %></li>
-          	<li><%= link_to image_tag("upload3.png", :border => 0), :action => 'show', :controller => 'events' %> </li>
-	    </ul>
+    <div class="footer row">
+    	<div class="form-center">
+    		
+	 	    <ul >
+		    	<li><%=link_to image_tag("events3.png", :border => 0), :action => 'index', :controller => 'events' %></li>
+	          	<li><%=link_to image_tag("users3.png", :border => 0), :action => 'index', :controller => 'users' %></li>
+	          	<li><%= image_tag "chat3.png" %></li>
+	          	<li><%= image_tag "upload3.png" %> </li>
+		    </ul>
+    	</div>
     </div>
   </body>
 </html>
