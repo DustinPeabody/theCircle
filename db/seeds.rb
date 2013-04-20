@@ -6,6 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user1 = User.create! :first_name => "Jorge", :last_name => "Chao", :type => "Promoter", :email => "jorge@chao.com"
+user1 = User.create! :first_name => "Jorge", :last_name => "Chao", :user_type => "Promoter", :email => "jorge@chao.com"
 location1 = Location.create! :name => "Siberia"
 event1 = Event.create! :title => "The Ghostwood", :location => location1
